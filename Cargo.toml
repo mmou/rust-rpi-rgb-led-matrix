@@ -9,9 +9,8 @@ build = "build.rs"
 license = "GPL-3.0"
 readme = "README.md"
 
-
 [build-dependencies]
-gcc = "0.3"
+cc = "1.0"
 
 [dependencies]
 libc = "0.2"
