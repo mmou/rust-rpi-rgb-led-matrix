@@ -1,3 +1,4 @@
+extern crate embedded_graphics;
 extern crate libc;
 mod c;
 
@@ -9,6 +10,7 @@ use std::ptr::null;
 pub use c::LedColor;
 pub use c::LedMatrixOptions;
 
+#[derive(Clone)]
 pub struct LedCanvas {
     handle: *mut c::LedCanvas,
 }

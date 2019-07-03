@@ -1,3 +1,4 @@
+use embedded_graphics::prelude::*;
 use libc::{c_char, c_int, uint8_t}; //FILE};
 use std::ffi::CString;
 
@@ -5,10 +6,33 @@ pub enum LedMatrix {}
 pub enum LedCanvas {}
 pub enum LedFont {}
 
+#[derive(Clone, Copy, PartialEq)]
 pub struct LedColor {
     pub red: u8,
     pub green: u8,
     pub blue: u8,
+}
+
+impl PixelColor for LedColor {}
+
+impl From<u8> for LedColor {
+    fn from(other: u8) -> Self {
+        LedColor {
+            red: other,
+            green: other,
+            blue: other,
+        }
+    }
+}
+
+impl From<u16> for LedColor {
+    fn from(other: u16) -> Self {
+        LedColor {
+            red: other as u8,
+            green: other as u8,
+            blue: other as u8,
+        }
+    }
 }
 
 type LedMatrixOptionsResult = Result<(), &'static str>;

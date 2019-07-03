@@ -13,4 +13,5 @@ readme = "README.md"
 cc = "1.0"
 
 [dependencies]
+embedded-graphics="0.5.1"
 libc = "0.2"
