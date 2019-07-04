@@ -1,3 +1,4 @@
+use embedded_graphics::pixelcolor::{FromRawData, PixelColor};
 use embedded_graphics::prelude::*;
 use libc::{c_char, c_int, uint8_t}; //FILE};
 use std::ffi::CString;
@@ -6,7 +7,7 @@ pub enum LedMatrix {}
 pub enum LedCanvas {}
 pub enum LedFont {}
 
-#[derive(Clone, Copy, PartialEq)]
+#[derive(Debug, Clone, Copy, PartialEq)]
 pub struct LedColor {
     pub red: u8,
     pub green: u8,
@@ -25,12 +26,14 @@ impl From<u8> for LedColor {
     }
 }
 
-impl From<u16> for LedColor {
-    fn from(other: u16) -> Self {
+impl FromRawData for LedColor {
+    fn from_raw_data(value: u32) -> Self {
+        let [_, r, g, b] = value.to_be_bytes();
+
         LedColor {
-            red: other as u8,
-            green: other as u8,
-            blue: other as u8,
+            red: r,
+            green: g,
+            blue: b,
         }
     }
 }
