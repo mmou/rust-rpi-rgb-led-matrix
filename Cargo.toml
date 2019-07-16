@@ -13,5 +13,5 @@ readme = "README.md"
 cc = "1.0"
 
 [dependencies]
-embedded-graphics={git="https://github.com/evq/embedded-graphics.git", branch="fix_bmp_stride", features=["bmp"]}
+embedded-graphics={git="https://github.com/mmou/embedded-graphics.git", branch="fix_bmp_stride", features=["bmp"]}
 libc = "0.2"

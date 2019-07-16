@@ -4,6 +4,7 @@ use libc::{c_char, c_int, uint8_t}; //FILE};
 use std::ffi::CString;
 
 pub enum LedMatrix {}
+
 pub enum LedCanvas {}
 pub enum LedFont {}
 
